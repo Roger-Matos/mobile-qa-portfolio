@@ -23,7 +23,7 @@ export const config: WebdriverIO.Config = {
         'appium:autoGrantPermissions': true,
         'appium:ignoreHiddenApiPolicyError': true,
         'appium:disableWindowAnimation': true,
-        'appium:settings[waitForIdleTimeout]': 1000,
+        'appium:settings': { waitForIdleTimeout: 1000 },
         'appium:language': 'en',
         'appium:locale': 'US',
     }],
