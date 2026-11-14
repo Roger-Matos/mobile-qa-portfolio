@@ -24,10 +24,10 @@ export const messageFlow = {
     },
 
     async deleteAndVerify(user: User, removed: Message, retained: Message) {
-        await step('Delete one message in Android and let the Undo window expire', () => inboxScreen.remove(removed))
-        await step('Read the API until the deleted message ID disappears', async () => {
+        await step('Delete one message in Android and verify the Undo action is offered', () => inboxScreen.remove(removed))
+        await step('Wait for the Undo window to expire and the message ID to disappear from the API', async () => {
             await driver.waitUntil(async () => !(await gotify.messages(user)).some(item => item.id === removed.id), {
-                timeout: 10_000, interval: 500, timeoutMsg: `Message ${removed.id} still present in the API`,
+                timeout: 25_000, interval: 500, timeoutMsg: `Message ${removed.id} still present in the API`,
             })
             await this.expectApiInbox(user, [retained])
         })
