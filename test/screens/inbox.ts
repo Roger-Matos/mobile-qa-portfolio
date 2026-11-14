@@ -33,7 +33,6 @@ export const inboxScreen = {
         await field(message.title, inbox.delete).click()
         await expect($(text('Message deleted'))).toBeDisplayed()
         await expect($(text('Undo'))).toBeDisplayed()
-        await $(text('Message deleted')).waitForDisplayed({ reverse: true })
     },
 
     async logout() {

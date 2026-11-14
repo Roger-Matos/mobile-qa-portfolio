@@ -85,7 +85,11 @@ const log = async message => {
 try {
     const port = await freePort()
     const archive = await prepareServer()
-    command('tar', ['-xf', archive, '-C', workspace])
+    if (process.platform === 'win32') {
+        command('tar', ['-xf', archive, '-C', workspace])
+    } else {
+        command('unzip', ['-q', archive, '-d', workspace])
+    }
     const binary = join(workspace, serverAsset().binary)
     await access(binary)
     const env = {
