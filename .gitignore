@@ -1,0 +1,8 @@
+node_modules/
+.cache/
+.env
+artifacts/
+allure-results/
+allure-report/
+*.apk
+*.db

@@ -1,0 +1,39 @@
+import { requiredEnv } from './test/services/gotify.ts'
+
+export const config: WebdriverIO.Config = {
+    runner: 'local',
+    hostname: '127.0.0.1',
+    port: Number(requiredEnv('QA_APPIUM_PORT')),
+    path: '/',
+    specs: ['./test/specs/*.spec.ts'],
+    maxInstances: 1,
+    specFileRetries: 0,
+    logLevel: 'silent',
+    waitforTimeout: 12_000,
+    connectionRetryTimeout: 30_000,
+    connectionRetryCount: 0,
+    capabilities: [{
+        platformName: 'Android',
+        'appium:automationName': 'UiAutomator2',
+        'appium:udid': requiredEnv('QA_ANDROID_SERIAL'),
+        'appium:app': requiredEnv('QA_APK'),
+        'appium:appPackage': 'com.github.gotify',
+        'appium:appWaitActivity': 'com.github.gotify.init.InitializationActivity,com.github.gotify.login.LoginActivity',
+        'appium:noReset': false,
+        'appium:autoGrantPermissions': true,
+        'appium:ignoreHiddenApiPolicyError': true,
+        'appium:disableWindowAnimation': true,
+        'appium:language': 'en',
+        'appium:locale': 'US',
+    }],
+    framework: 'mocha',
+    mochaOpts: { ui: 'bdd', timeout: 95_000, retries: 0 },
+    reporters: [
+        'spec',
+        ['allure', {
+            outputDir: 'allure-results',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: true,
+        }],
+    ],
+}
