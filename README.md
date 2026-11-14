@@ -21,7 +21,7 @@ Na exclusão, a fixture retorna os IDs da mensagem alvo e da mensagem de control
 
 ## Executar localmente
 
-Use Windows ou Linux x64, Node.js 24 e `tar`. Para os cenários mobile, use Java 21, Android SDK com `ANDROID_HOME` configurado e um emulador Android API 35 iniciado e desbloqueado. Use um AVD dedicado ao Gotify, pois a suíte limpa os dados do app. Com vários emuladores, defina `ANDROID_SERIAL` para selecionar um deles.
+Use Node.js 24 e um sistema x64 com `tar` no Windows ou `unzip` no Linux. Para os cenários mobile, use Java 21, Android SDK com `ANDROID_HOME` configurado e um emulador Android API 35 iniciado e desbloqueado. Use um AVD dedicado ao Gotify, pois a suíte limpa os dados do app. Com vários emuladores, defina `ANDROID_SERIAL` para selecionar um deles.
 
 ```sh
 npm ci

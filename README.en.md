@@ -21,7 +21,7 @@ For deletion, the fixture returns IDs for both the target and control messages. 
 
 ## Run locally
 
-Use Windows or Linux x64 with Node.js 24 and `tar`. Mobile scenarios also require Java 21, the Android SDK with `ANDROID_HOME` configured, and a booted, unlocked Android API 35 emulator. Use a dedicated Gotify AVD as the suite clears the app's data. If several emulators are running, set `ANDROID_SERIAL` to select one.
+Use Node.js 24 on an x64 system with `tar` on Windows or `unzip` on Linux. Mobile scenarios also require Java 21, the Android SDK with `ANDROID_HOME` configured, and a booted, unlocked Android API 35 emulator. Use a dedicated Gotify AVD as the suite clears the app's data. If several emulators are running, set `ANDROID_SERIAL` to select one.
 
 ```sh
 npm ci
